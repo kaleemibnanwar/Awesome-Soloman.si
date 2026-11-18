@@ -1,7 +1,7 @@
 # Feature Specification: MCP Fleet Mesh & Dynamic Tool Routing 🌐🛡️
 
 > **Enterprise-Scale Model Context Protocol Mesh, Dynamic Tool Discovery & Isolation Scoping**  
-> Integrated across: `OctopusMCP-Manager`, `OctopusStudio`, `octocut`, `octolimb`
+> Integrated across: `Soloman Manager`, `Soloman Studio`, `Soloman Editor`, `Soloman Limb`
 
 ---
 
@@ -20,7 +20,7 @@ The **MCP Fleet Mesh** delivers universal connectivity across tools, data source
              │ Context & User Intention
              ▼
 ┌────────────────────────────────────────────────────────┐
-│               OctopusMCP-Manager Router                │
+│               Soloman Manager Router                   │
 │  1. Vector Similarity Match over Tool Catalog          │
 │  2. Token Budget Sizing (Max 1,500 tokens)             │
 │  3. Agent Role & Permission Filter (RBAC)              │
@@ -40,11 +40,11 @@ The **MCP Fleet Mesh** delivers universal connectivity across tools, data source
 └────────────┬───────────────────────────────────────────┘
              │
      ┌───────┴───────┬───────────────┬───────────────┐
-     ▼               ▼               ▼               ▼
-┌──────────┐   ┌───────────┐   ┌───────────┐   ┌───────────┐
-│ octocut  │   │ octolimb  │   │ Studio FS │   │ PostgreSQL│
-│ (Media)  │   │(Robotics) │   │ (Editor)  │   │ (Database)│
-└──────────┘   └───────────┘   └───────────┘   └───────────┘
+        ▼                   ▼                 ▼               ▼
+┌────────────────┐   ┌──────────────┐   ┌───────────┐   ┌────────────┐
+│ Soloman Editor │   │ Soloman Limb │   │ Studio FS │   │ PostgreSQL │
+│ (Media)        │   │ (Robotics)   │   │ (Editor)  │   │ (Database) │
+└────────────────┘   └──────────────┘   └───────────┘   └────────────┘
 ```
 
 ---
@@ -59,12 +59,12 @@ The **MCP Fleet Mesh** delivers universal connectivity across tools, data source
 - Native dual-channel support for:
   - **STDIO**: Fast local child-process execution.
   - **SSE (Server-Sent Events)**: Asynchronous HTTP streaming for cloud services and webhooks.
-  - **WebSocket / gRPC**: Real-time bi-directional streaming for low-latency robotics (`octolimb`) and video streams (`octocut`).
+  - **WebSocket / gRPC**: Real-time bi-directional streaming for low-latency robotics (`Soloman Limb`) and video streams (`Soloman Editor`).
 
 ### 3. Role-Based Access Control (RBAC) & Hard Sandboxing
 - Strict segregation of tool permissions based on active agent role:
-  - `explorer`: Restricted to `read_file`, `grep`, `octocut_inspect_metadata`, `octolimb_get_telemetry`.
-  - `executor`: Permitted to invoke `search_replace`, `write_file`, `octocut_slice_clip`, `octolimb_move_to_pose`.
+  - `explorer`: Restricted to `read_file`, `grep`, `soloman-editor_inspect_metadata`, `soloman-limb_get_telemetry`.
+  - `executor`: Permitted to invoke `search_replace`, `write_file`, `soloman-editor_slice_clip`, `soloman-limb_move_to_pose`.
   - `admin`: Full system privileges, server lifecycle management, and credential updates.
 
 ### 4. Circuit Breaking & Fault Isolation
@@ -87,13 +87,13 @@ audit_pipeline:
   mask_patterns: ["*token*", "*key*", "*password*", "*secret*"]
 
 nodes:
-  - id: "octocut-cluster"
+  - id: "soloman-editor-cluster"
     provider: "mcp-service"
     transport: "sse"
-    url: "http://octocut.mesh.local/mcp"
+    url: "http://soloman-editor.mesh.local/mcp"
     health_check_interval_sec: 5
 
-  - id: "octolimb-factory-cell-1"
+  - id: "soloman-limb-factory-cell-1"
     provider: "mcp-edge"
     transport: "grpc"
     endpoint: "10.0.4.15:9000"

@@ -1,7 +1,7 @@
 # Automated Workflow: Multimodal Video Synthesis & Distribution 🎬🚀
 
 > **Declarative Blueprint for Autonomous Footage Ingestion, AI Trimming, Vertical Reframing, Captioning & CDN Publishing**  
-> Orchestrated via: `OctopusStudio` + `octocut` + `OctopusMCP-Manager`
+> Orchestrated via: `Soloman Studio` + `Soloman Editor` + `Soloman Manager`
 
 ---
 
@@ -21,31 +21,31 @@ This workflow automates the end-to-end transformation of multi-hour raw broadcas
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 1: Speech-to-Text & Align  │
-               │ (octocut Whisper ASR Engine)    │
+               │ (Soloman Editor Whisper ASR)    │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 2: Semantic Highlight Find │
-               │ (OctopusStudio LLM Topic Agent) │
+               │(Soloman Studio LLM Topic Agent) │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 3: GOP-Lossless Trimming   │
-               │ (octocut Slicing Core)          │
+               │ (Soloman Editor Slicing Core)   │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 4: 9:16 Face Reframe & Sub │
-               │ (octocut GPU Render Worker)     │
+               │ (Soloman Editor GPU Render)     │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 5: Audited Multi-CDN Push  │
-               │ (OctopusMCP-Manager Vault & API)│
+               │ (Soloman Manager Vault & API)   │
                └─────────────────────────────────┘
 ```
 
@@ -55,14 +55,14 @@ This workflow automates the end-to-end transformation of multi-hour raw broadcas
 
 ```json
 {
-  "$schema": "http://octopus.engine/schemas/workflow-v2.json",
+  "$schema": "http://soloman.engine/schemas/workflow-v2.json",
   "name": "multimodal-video-synthesis",
   "version": "2.1.0",
   "concurrency": 2,
   "nodes": [
     {
       "id": "transcribe_raw_media",
-      "tool": "octocut_transcribe_and_align",
+      "tool": "soloman-editor_transcribe_and_align",
       "inputs": {
         "source_file": "{{inputs.video_url}}",
         "model": "whisper-large-v3",
@@ -77,7 +77,7 @@ This workflow automates the end-to-end transformation of multi-hour raw broadcas
     },
     {
       "id": "render_vertical_clips",
-      "tool": "octocut_batch_render_shorts",
+      "tool": "soloman-editor_batch_render_shorts",
       "depends_on": ["identify_viral_segments"],
       "inputs": {
         "source_file": "{{inputs.video_url}}",

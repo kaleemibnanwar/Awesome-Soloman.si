@@ -1,7 +1,7 @@
 # Feature Specification: Secure Sandboxed Runtime & AST Guardrails 🔒🛡️
 
 > **Zero-Trust Execution Boundaries, Static AST Validation & Token-Budget Guardrails**  
-> Integrated across: `OctopusStudio`, `OctopusMCP-Manager`
+> Integrated across: `Soloman Studio`, `Soloman Manager`
 
 ---
 
@@ -55,7 +55,7 @@ The **Secure Sandboxed Runtime & AST Guardrails** feature enforces strict execut
 - Implements strict CPU timeouts and garbage-collected memory boundaries.
 
 ### 3. Masked Secret Vaulting
-- Environment variables and API keys are stored in encrypted vaults managed by `OctopusMCP-Manager`.
+- Environment variables and API keys are stored in encrypted vaults managed by `Soloman Manager`.
 - Secrets are injected at runtime into outbound requests without ever being reflected into LLM context logs or client-side bundles.
 
 ### 4. Deterministic TypeScript Type Checker

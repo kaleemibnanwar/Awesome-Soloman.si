@@ -1,15 +1,15 @@
-# Product Specification: OctopusStudio 🐙💻
+# Product Specification: Soloman Studio ⚡💻
 
 > **The Next-Generation AI-Native Multi-Agent IDE & Visual Real-Time Code Synthesis Platform**  
-> Repository: [github.com/kaleemibnanwar/OctopusStudio](https://github.com/kaleemibnanwar/OctopusStudio)
+> Repository: [github.com/kaleemibnanwar/Soloman-Studio](https://github.com/kaleemibnanwar/Soloman-Studio)
 
 ---
 
 ## 📌 Executive Summary
 
-**OctopusStudio** is an interactive multi-agent software engineering environment designed for real-time application synthesis, autonomous code generation, sandboxed execution, and live hot-reloading previews. It bridges the gap between natural language intention, Directed Acyclic Graph (DAG) task orchestration, and deterministic software engineering.
+**Soloman Studio** is an interactive multi-agent software engineering environment designed for real-time application synthesis, autonomous code generation, sandboxed execution, and live hot-reloading previews. It bridges the gap between natural language intention, Directed Acyclic Graph (DAG) task orchestration, and deterministic software engineering.
 
-OctopusStudio empowers developers and autonomous AI agents to collaborate seamlessly inside an integrated browser-based IDE featuring isolated execution sandboxes, dynamic tool injection, and bidirectional live previews.
+Soloman Studio empowers developers and autonomous AI agents to collaborate seamlessly inside an integrated browser-based IDE featuring isolated execution sandboxes, dynamic tool injection, and bidirectional live previews.
 
 ---
 
@@ -17,13 +17,13 @@ OctopusStudio empowers developers and autonomous AI agents to collaborate seamle
 
 ```
                       ┌─────────────────────────────────────────┐
-                      │             OctopusStudio UI            │
+                      │             Soloman Studio UI           │
                       │   (React / TypeScript / Tailwind CSS)   │
                       └────────────────────┬────────────────────┘
                                            │
                         ┌──────────────────┴──────────────────┐
-                        │   Multi-Agent Orchestration Engine  │
-                        │    (Planner / Executor / Verifier)   │
+                        │   Multi-Agent Orchestration Engine      │
+                        │    (Planner / Executor / Verifier)      │
                         └──────────────────┬──────────────────┘
                                            │
          ┌─────────────────────────────────┼─────────────────────────────────┐
@@ -58,7 +58,7 @@ OctopusStudio empowers developers and autonomous AI agents to collaborate seamle
 - Real-time task progress reporting and dynamic graph recalculation upon test failures.
 
 ### 3. Native Model Context Protocol (MCP) Integration
-- Direct interoperability with `OctopusMCP-Manager` for dynamic tool discovery (databases, APIs, shell, file systems, robotics).
+- Direct interoperability with `Soloman Manager` for dynamic tool discovery (databases, APIs, shell, file systems, robotics).
 - Token-budget-aware tool schema injection preventing LLM context bloat.
 
 ### 4. Zero-Friction Live Execution Engine
@@ -69,27 +69,27 @@ OctopusStudio empowers developers and autonomous AI agents to collaborate seamle
 
 ## 🔌 Interconnection Interface
 
-OctopusStudio serves as the **central cognitive & orchestration control plane** across the Octopus ecosystem:
+Soloman Studio serves as the **central cognitive & orchestration control plane** across the Soloman ecosystem:
 
 ```yaml
-# octopus-studio-connection-manifest.yaml
+# soloman-studio-connection-manifest.yaml
 ecosystem:
-  hub: "OctopusStudio"
+  hub: "Soloman Studio"
   connectors:
     mcp_gateway:
-      target: "OctopusMCP-Manager"
+      target: "Soloman Manager"
       protocol: "mcp-jsonrpc/2.0"
       endpoint: "http://localhost:8080/mcp"
       capabilities: ["tool_discovery", "dynamic_routing", "secret_vaulting"]
     
     media_pipeline:
-      target: "octocut"
+      target: "soloman-editor"
       protocol: "grpc/rest"
       endpoint: "http://localhost:5050/media"
       capabilities: ["video_slicing", "audio_transcription", "auto_subtitles"]
       
     hardware_runtime:
-      target: "octolimb"
+      target: "soloman-limb"
       protocol: "ws/telemetry"
       endpoint: "ws://localhost:9000/actuation"
       capabilities: ["spatial_telemetry", "robotic_kinematics", "sensor_stream"]
@@ -100,16 +100,16 @@ ecosystem:
 ## 💻 Code Example: Dispatching Multi-Tool Agent Tasks
 
 ```typescript
-import { OctopusStudioAgent, TaskDAG } from '@octopus/studio-sdk';
+import { SolomanStudioAgent, TaskDAG } from '@soloman/studio-sdk';
 
-const studio = new OctopusStudioAgent({
-  apiKey: process.env.OCTOPUS_API_KEY,
+const studio = new SolomanStudioAgent({
+  apiKey: process.env.SOLOMAN_API_KEY,
   mcpManagerUrl: 'http://localhost:8080',
 });
 
 // Define DAG bridging code synthesis and media processing
 const taskDAG: TaskDAG = {
-  goal: "Build interactive video trimmer dashboard and connect to octocut engine",
+  goal: "Build interactive video trimmer dashboard and connect to soloman-editor engine",
   subtasks: [
     {
       id: "scaffold-ui",
@@ -118,9 +118,9 @@ const taskDAG: TaskDAG = {
       allowed_files: ["src/components/Timeline.tsx", "src/pages/Index.tsx"]
     },
     {
-      id: "bind-octocut-mcp",
+      id: "bind-soloman-editor-mcp",
       role: "executor",
-      goal: "Generate client hook communicating with octocut video slicing endpoint",
+      goal: "Generate client hook communicating with soloman-editor video slicing endpoint",
       depends_on: ["scaffold-ui"],
       allowed_files: ["src/hooks/useVideoSlice.ts"]
     },
@@ -128,7 +128,7 @@ const taskDAG: TaskDAG = {
       id: "typecheck-and-verify",
       role: "verifier",
       goal: "Run TypeScript checks and verify render pipeline in sandbox",
-      depends_on: ["bind-octocut-mcp"]
+      depends_on: ["bind-soloman-editor-mcp"]
     }
   ]
 };

@@ -1,6 +1,6 @@
-# Contributing to the Awesome-Octopus Ecosystem 🐙🤝
+# Contributing to the Awesome Soloman Ecosystem ⚡🤝
 
-Thank you for your interest in contributing to **Awesome-Octopus**! This repository serves as the definitive architecture guide, product specification hub, case study catalog, and workflow index for the Octopus ecosystem (`OctopusStudio`, `octocut`, `octolimb`, and `OctopusMCP-Manager`).
+Thank you for your interest in contributing to **Awesome Soloman**! This repository serves as the definitive architecture guide, product specification hub, case study catalog, and workflow index for the Soloman ecosystem (`Soloman Studio`, `Soloman Editor`, `Soloman Limb`, and `Soloman Manager`).
 
 ---
 
@@ -8,11 +8,11 @@ Thank you for your interest in contributing to **Awesome-Octopus**! This reposit
 
 We welcome contributions across four distinct directories:
 
-1. **Products (`products/`)**: Deep-dive technical specifications, APIs, and benchmarks for tools in the Octopus ecosystem.
+1. **Products (`products/`)**: Deep-dive technical specifications, APIs, and benchmarks for tools in the Soloman ecosystem.
 2. **Features (`features/`)**: Reusable technical capability blueprints, DAG implementations, kinematics, and security patterns.
-3. **Systems & Blueprints (`systems/`)**: Architecture diagrams and data flows illustrating how multiple Octopus tools interconnect to form complete cyber-physical or digital platforms.
+3. **Systems & Blueprints (`systems/`)**: Architecture diagrams and data flows illustrating how multiple Soloman tools interconnect to form complete cyber-physical or digital platforms.
 4. **Case Studies (`case-studies/`)**: Detailed, quantitative real-world deployment stories with problem statements, architecture flows, metrics, and lessons learned.
-5. **Workflows (`workflows/`)**: Declarative DAG JSON/YAML automation recipes ready to run on the Octopus execution engine.
+5. **Workflows (`workflows/`)**: Declarative DAG JSON/YAML automation recipes ready to run on the Soloman execution engine.
 
 ---
 

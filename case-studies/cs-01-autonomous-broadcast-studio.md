@@ -1,7 +1,7 @@
 # Case Study: Autonomous 24/7 AI Broadcast Studio & Video Clipping 📺🎬
 
 > **Production Deployment Deep Dive**  
-> **Tools Integrated**: `OctopusStudio`, `octocut`, `OctopusMCP-Manager`  
+> **Tools Integrated**: `Soloman Studio`, `Soloman Editor`, `Soloman Manager`  
 > **Industry**: Digital Media, Live Sports & Financial News Streaming  
 > **Key Metric**: **94% reduction** in post-production time; **1,200+ viral clips/day** produced automatically.
 
@@ -20,38 +20,38 @@
 
 ## 🛠 Architectural Solution
 
-The engineering team deployed an interconnected Octopus pipeline:
+The engineering team deployed an interconnected Soloman pipeline:
 
 ```
- [ 4K Live RTMP Feeds ] ──► [ octocut Ingestion Node ]
+ [ 4K Live RTMP Feeds ] ──► [ soloman-editor Ingestion Node ]
                                       │
                                       ▼ (Real-time Whisper Audio Sync)
-                             [ OctopusMCP-Manager ]
+                             [ Soloman Manager ]
                                       │
                                       ▼ (Semantic Highlight Detection)
-                             [ OctopusStudio Multi-Agent DAG ]
+                             [ Soloman Studio Multi-Agent DAG ]
                                       │
                                       ├─► [ Agent 1: Context & Metadata ]
                                       ├─► [ Agent 2: Live React Viewer UI ]
-                                      └─► [ Agent 3: octocut Render Task ]
+                                      └─► [ Agent 3: soloman-editor Render Task ]
                                                      │
                                                      ▼
-                                      [ octocut Lossless Exporter ]
+                                      [ soloman-editor Lossless Exporter ]
                                                      │
                                                      ▼
                              [ Multi-Platform Distribution CDN ]
 ```
 
 ### System Integration Breakdown:
-- **`octocut`**: Connected directly to the live RTMP video feed, running continuous Whisper ASR transcription and voice energy analysis. When game commentators shouted or chat velocity spiked, `octocut` logged a candidate highlight event.
-- **`OctopusMCP-Manager`**: Provided secure access to social media publishing APIs, cloud storage buckets, and LLM reasoning models with zero credential leakage.
-- **`OctopusStudio`**: Ran the multi-agent DAG that extracted context, formulated viral titles and hashtags, triggered automated 9:16 vertical reframing with face tracking, and generated live React-based highlight dashboards for producers.
+- **`Soloman Editor`**: Connected directly to the live RTMP video feed, running continuous Whisper ASR transcription and voice energy analysis. When game commentators shouted or chat velocity spiked, `Soloman Editor` logged a candidate highlight event.
+- **`Soloman Manager`**: Provided secure access to social media publishing APIs, cloud storage buckets, and LLM reasoning models with zero credential leakage.
+- **`Soloman Studio`**: Ran the multi-agent DAG that extracted context, formulated viral titles and hashtags, triggered automated 9:16 vertical reframing with face tracking, and generated live React-based highlight dashboards for producers.
 
 ---
 
 ## 📈 Quantitative Results & ROI
 
-| Metric | Before Octopus Pipeline | After Octopus Pipeline | Impact |
+| Metric | Before Soloman Pipeline | After Soloman Pipeline | Impact |
 | :--- | :--- | :--- | :--- |
 | **Clip Production Latency** | 45 minutes | **28 seconds** | **96x faster** |
 | **Daily Highlight Volume** | 35 clips / day | **1,250 clips / day** | **35x scale** |
@@ -62,5 +62,5 @@ The engineering team deployed an interconnected Octopus pipeline:
 
 ## 💡 Key Architectural Lessons Learned
 
-1. **GOP-Aligned Lossless Cutting Is Essential**: Attempting to re-encode full 4K video files for every 30-second clip crushed server CPU/GPU resources. Using `octocut`'s smart GOP-lossless stream copying cut compute costs by 80%.
-2. **Dynamic Tool Scoping Protects LLM Context**: Routing tool schemas through `OctopusMCP-Manager` prevented the agent prompt from being overloaded, maintaining low inference costs and 99.9% tool call accuracy.
+1. **GOP-Aligned Lossless Cutting Is Essential**: Attempting to re-encode full 4K video files for every 30-second clip crushed server CPU/GPU resources. Using `Soloman Editor`'s smart GOP-lossless stream copying cut compute costs by 80%.
+2. **Dynamic Tool Scoping Protects LLM Context**: Routing tool schemas through `Soloman Manager` prevented the agent prompt from being overloaded, maintaining low inference costs and 99.9% tool call accuracy.

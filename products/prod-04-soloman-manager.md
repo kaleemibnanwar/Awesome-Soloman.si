@@ -1,15 +1,15 @@
-# Product Specification: OctopusMCP-Manager 🛡️🌐
+# Product Specification: Soloman Manager 🛡️🌐
 
 > **Enterprise Model Context Protocol (MCP) Server Fleet Manager, Tool Mesh & Security Gateway**  
-> Repository: [github.com/kaleemibnanwar/OctopusMCP-Manager](https://github.com/kaleemibnanwar/OctopusMCP-Manager)
+> Repository: [github.com/kaleemibnanwar/Soloman-Manager](https://github.com/kaleemibnanwar/Soloman-Manager)
 
 ---
 
 ## 📌 Executive Summary
 
-**OctopusMCP-Manager** is a centralized control plane, gateway router, and life-cycle manager for the Model Context Protocol (MCP). It allows enterprises and autonomous AI platforms to discover, secure, aggregate, balance, and monitor hundreds of distributed MCP tool servers across heterogeneous local processes, Docker containers, Kubernetes clusters, and remote edge appliances.
+**Soloman Manager** is a centralized control plane, gateway router, and life-cycle manager for the Model Context Protocol (MCP). It allows enterprises and autonomous AI platforms to discover, secure, aggregate, balance, and monitor hundreds of distributed MCP tool servers across heterogeneous local processes, Docker containers, Kubernetes clusters, and remote edge appliances.
 
-By acting as a zero-trust intermediary between Large Language Models (LLMs) and operational tool backends, `OctopusMCP-Manager` resolves the challenges of token overhead, credential leakage, protocol incompatibility, and runtime unreliability.
+By acting as a zero-trust intermediary between Large Language Models (LLMs) and operational tool backends, `Soloman Manager` resolves the challenges of token overhead, credential leakage, protocol incompatibility, and runtime unreliability.
 
 ---
 
@@ -18,11 +18,11 @@ By acting as a zero-trust intermediary between Large Language Models (LLMs) and 
 ```
                       ┌─────────────────────────────────────────┐
                       │    AI Clients & Multi-Agent Swarms      │
-                      │ (OctopusStudio / Claude / Custom Agents)│
+                      │(Soloman Studio / Claude / Custom Agents)│
                       └────────────────────┬────────────────────┘
                                            │ MCP JSON-RPC
                       ┌────────────────────┴────────────────────┐
-                      │        OctopusMCP-Manager Gateway       │
+                      │        Soloman Manager Gateway          │
                       └────────────────────┬────────────────────┘
                                            │
          ┌─────────────────────────────────┼─────────────────────────────────┐
@@ -41,7 +41,7 @@ By acting as a zero-trust intermediary between Large Language Models (LLMs) and 
          ┌─────────────────────────────────┼─────────────────────────────────┐
          ▼                                 ▼                                 ▼
 ┌──────────────────┐             ┌───────────────────┐             ┌──────────────────┐
-│  octocut Server  │             │  octolimb Node    │             │ Cloud APIs & DBs │
+│  Soloman Editor  │             │ Soloman Limb Node │             │ Cloud APIs & DBs │
 │ (Media Slicing)  │             │ (Robotic Control) │             │ (Postgres/GitHub)│
 └──────────────────┘             └───────────────────┘             └──────────────────┘
 ```
@@ -70,29 +70,29 @@ By acting as a zero-trust intermediary between Large Language Models (LLMs) and 
 
 ## 🔌 Interconnection Interface
 
-`OctopusMCP-Manager` acts as the **central neurological nervous system** of the ecosystem:
-- **With OctopusStudio**: Provides a single unified MCP endpoint url with dynamically scoped permissions matching the active user session or sub-agent role.
-- **With octocut**: Manages the video slicing microservice lifecycle and proxies heavy video rendering requests.
-- **With octolimb**: Applies safety rate limits, authentication tokens, and hardware health checks to physical motor actuation commands.
+`Soloman Manager` acts as the **central neurological nervous system** of the ecosystem:
+- **With Soloman Studio**: Provides a single unified MCP endpoint url with dynamically scoped permissions matching the active user session or sub-agent role.
+- **With Soloman Editor**: Manages the video slicing microservice lifecycle and proxies heavy video rendering requests.
+- **With Soloman Limb**: Applies safety rate limits, authentication tokens, and hardware health checks to physical motor actuation commands.
 
 ```yaml
 # mcp-fleet-config.yaml
 version: "1.0"
 fleet:
-  name: "Octopus-Production-Mesh"
+  name: "Soloman-Production-Mesh"
   gateway_port: 8080
   auth:
     type: "bearer-jwt"
     secret_vault_ref: "vault://production/mcp-jwt-key"
 
   servers:
-    - id: "octocut-media"
+    - id: "soloman-editor-media"
       transport: "sse"
-      url: "http://octocut-service.internal:5050/sse"
+      url: "http://soloman-editor-service.internal:5050/sse"
       tags: ["media", "video", "transcription"]
       rate_limit: "60/min"
 
-    - id: "octolimb-edge-node"
+    - id: "soloman-limb-edge-node"
       transport: "http-streaming"
       url: "http://192.168.1.120:9000/mcp"
       tags: ["hardware", "robotics", "actuation"]
@@ -102,7 +102,7 @@ fleet:
     - id: "postgres-database"
       transport: "stdio"
       command: "npx"
-      args: ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:pass@localhost:5432/octodb"]
+      args: ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:pass@localhost:5432/solomandb"]
       tags: ["database", "storage"]
 ```
 
@@ -111,7 +111,7 @@ fleet:
 ## 💻 Code Example: Gateway Client Configuration
 
 ```typescript
-import { MCPManagerGateway, SecurityPolicy } from '@octopus/mcp-manager';
+import { MCPManagerGateway, SecurityPolicy } from '@soloman/mcp-manager';
 
 // Initialize gateway router
 const gateway = new MCPManagerGateway({
@@ -129,7 +129,7 @@ const filteredTools = await gateway.resolveToolsForAgent({
 });
 
 console.log(`Discovered ${filteredTools.length} matching tools:`, filteredTools.map(t => t.name));
-// Output: ['octolimb_track_target_coordinates', 'octocut_slice_clip', 'octocut_burn_captions']
+// Output: ['soloman-limb_track_target_coordinates', 'soloman-editor_slice_clip', 'soloman-editor_burn_captions']
 ```
 
 ---

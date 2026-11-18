@@ -1,13 +1,13 @@
 # Automated Workflow: Dynamic MCP Tool Discovery & Zero-Trust Dispatch 🌐🛡️
 
 > **Declarative Blueprint for Vector Tool Indexing, Permission Enforcement, Secret Vaulting & Audited Execution**  
-> Orchestrated via: `OctopusMCP-Manager` + `OctopusStudio`
+> Orchestrated via: `Soloman Manager` + `Soloman Studio`
 
 ---
 
 ## 📌 Workflow Summary
 
-This workflow demonstrates how `OctopusMCP-Manager` intercepts agent intents, dynamically filters hundreds of registered MCP tools down to the exact subset needed, resolves credentials securely from a vault, and dispatches the execution over stdio, SSE, or gRPC transports.
+This workflow demonstrates how `Soloman Manager` intercepts agent intents, dynamically filters hundreds of registered MCP tools down to the exact subset needed, resolves credentials securely from a vault, and dispatches the execution over stdio, SSE, or gRPC transports.
 
 ---
 
@@ -27,7 +27,7 @@ This workflow demonstrates how `OctopusMCP-Manager` intercepts agent intents, dy
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 2: RBAC & Token Budget Cut │
-               │ (OctopusMCP-Manager Filter)     │
+               │ (Soloman Manager Filter)        │
                └────────────────┬────────────────┘
                                 │
                                 ▼
@@ -78,7 +78,7 @@ workflow:
       params:
         tool_name: "{{agent.selected_tool}}"
         arguments: "{{agent.tool_arguments}}"
-        inject_vault_keys: ["AWS_SECRET_ACCESS_KEY", "OCTOPUS_NODE_TOKEN"]
+        inject_vault_keys: ["AWS_SECRET_ACCESS_KEY", "SOLOMAN_NODE_TOKEN"]
 
     - id: "record_telemetry"
       action: "gateway:emit_audit_record"

@@ -1,7 +1,7 @@
 # Case Study: Smart Warehouse Drone Fleet & Spatial Inventory Sorting 📦🚁
 
 > **Production Deployment Deep Dive**  
-> **Tools Integrated**: `octolimb`, `octocut`, `OctopusMCP-Manager`, `OctopusStudio`  
+> **Tools Integrated**: `Soloman Limb`, `Soloman Editor`, `Soloman Manager`, `Soloman Studio`  
 > **Industry**: Logistics, Supply Chain Fulfillment & Automated Warehousing  
 > **Key Metric**: **99.96% barcode & inventory accuracy**; **70% reduction in cycle count duration**.
 
@@ -24,37 +24,37 @@ ApexLogix introduced an autonomous inventory inspection mesh:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                   OctopusStudio Fleet Mission Control                  │
+│                   Soloman Studio Fleet Mission Control                 │
 │    - Multi-Drone & Robotic Sorter Path Planner (DAG Scheduler)         │
 │    - Real-Time Warehouse Spatial Digital Twin                          │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│                      OctopusMCP-Manager Gateway                        │
+│                      Soloman Manager Gateway                           │
 │    - Secure Drone Telemetry Mesh & Warehouse ERP (SAP/WMS) Connector   │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
            ┌────────────────────────┴────────────────────────┐
            ▼                                                 ▼
 ┌─────────────────────────────────────┐   ┌─────────────────────────────────────┐
-│          octolimb Edge HAL          │   │         octocut Media Engine        │
+│          Soloman Limb Edge HAL      │   │         Soloman Editor Media Engine │
 │ - Drone Flight Gimbal Tracking      │   │ - Multi-Camera Barcode / QR Decode  │
 │ - Pallet-Retrieval Robotic Grippers │   │ - Real-Time Box Damage Segmentation │
 └─────────────────────────────────────┘   └─────────────────────────────────────┘
 ```
 
 ### System Integration Breakdown:
-- **`octolimb`**: Governed spatial telemetry and flight path stabilization for autonomous inventory quadcopters and ground automated guided vehicles (AGVs). Controlled pan-tilt optical zoom camera gimbals.
-- **`octocut`**: Processed multi-stream 4K onboard video feeds in real time, decoding high-density 2D barcodes at angles up to 60 degrees while simultaneously detecting package deformation and barcode tears.
-- **`OctopusMCP-Manager`**: Synced stock levels directly into the enterprise warehouse management system (SAP EWM) via audited MCP database tools.
-- **`OctopusStudio`**: Provided warehouse operators with a 3D digital twin of the racking layout, highlighting damaged pallets and misplaced inventory with one-click dispatch for autonomous retrieval.
+- **`Soloman Limb`**: Governed spatial telemetry and flight path stabilization for autonomous inventory quadcopters and ground automated guided vehicles (AGVs). Controlled pan-tilt optical zoom camera gimbals.
+- **`Soloman Editor`**: Processed multi-stream 4K onboard video feeds in real time, decoding high-density 2D barcodes at angles up to 60 degrees while simultaneously detecting package deformation and barcode tears.
+- **`Soloman Manager`**: Synced stock levels directly into the enterprise warehouse management system (SAP EWM) via audited MCP database tools.
+- **`Soloman Studio`**: Provided warehouse operators with a 3D digital twin of the racking layout, highlighting damaged pallets and misplaced inventory with one-click dispatch for autonomous retrieval.
 
 ---
 
 ## 📈 Quantitative Results & ROI
 
-| Metric | Manual Inventory Auditing | Octopus Autonomous Fleet | Improvement |
+| Metric | Manual Inventory Auditing | Soloman Autonomous Fleet | Improvement |
 | :--- | :--- | :--- | :--- |
 | **Warehouse Full Cycle Count** | 12 Days (288 hours) | **3.5 Hours** | **82x faster** |
 | **Audit Labor Hours** | 480 Person-Hours | **0 Person-Hours** (Unattended) | **100% autonomous** |
@@ -65,5 +65,5 @@ ApexLogix introduced an autonomous inventory inspection mesh:
 
 ## 💡 Key Architectural Lessons Learned
 
-1. **Edge Slicing Cuts Network Congestion**: Streaming raw 4K video from 20 drones simultaneously saturated warehouse Wi-Fi. By having `octocut` process frames locally on Jetson Orin edge modules and stream only key anomaly clips, network bandwidth was cut by 93%.
-2. **Universal MCP Abstraction Simplified ERP Migration**: When the client upgraded from legacy SQL databases to SAP EWM, only the MCP server connector in `OctopusMCP-Manager` was updated—zero code changes were needed in the agent logic.
+1. **Edge Slicing Cuts Network Congestion**: Streaming raw 4K video from 20 drones simultaneously saturated warehouse Wi-Fi. By having `Soloman Editor` process frames locally on Jetson Orin edge modules and stream only key anomaly clips, network bandwidth was cut by 93%.
+2. **Universal MCP Abstraction Simplified ERP Migration**: When the client upgraded from legacy SQL databases to SAP EWM, only the MCP server connector in `Soloman Manager` was updated—zero code changes were needed in the agent logic.

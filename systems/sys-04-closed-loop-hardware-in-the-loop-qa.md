@@ -1,7 +1,7 @@
 # System Blueprint: Closed-Loop Hardware-in-the-Loop (HIL) Testbed 🔬⚡
 
 > **Architectural Pattern for Automated Device Testing, Firmware Flashing, Physical Manipulation & Optical Verification**  
-> Interconnecting: `OctopusStudio` + `OctopusMCP-Manager` + `octolimb` + `octocut`
+> Interconnecting: `Soloman Studio` + `Soloman Manager` + `Soloman Limb` + `Soloman Editor`
 
 ---
 
@@ -14,14 +14,14 @@
                                   │
                                   ▼
              ┌─────────────────────────────────────────┐
-             │         OctopusStudio Test Runner       │
+             │         Soloman Studio Test Runner      │
              │  - Automated Test Suite DAG Generator   │
              │  - Live Status UI & Telemetry Logging   │
              └────────────────────┬────────────────────┘
                                   │
                                   ▼
              ┌─────────────────────────────────────────┐
-             │       OctopusMCP-Manager Gateway        │
+             │       Soloman Manager Gateway           │
              │  - Serial / JTAG Flashing Tool Mesh     │
              │  - Hardware Safety Guardrails           │
              └────────────────────┬────────────────────┘
@@ -29,7 +29,7 @@
          ┌────────────────────────┴────────────────────────┐
          ▼                                                 ▼
 ┌──────────────────┐                             ┌──────────────────┐
-│  octolimb Arm    │                             │  octocut Vision  │
+│ Soloman Limb Arm │                             │  Soloman Editor  │
 │ (Physical Touch) │                             │ (Screen Verify)  │
 └────────┬─────────┘                             └────────┬─────────┘
          │                                                │
@@ -47,19 +47,19 @@
 
 1. **Firmware Trigger & Scaffolding**:
    - A developer pushes new embedded C/Rust firmware code to GitHub.
-   - `OctopusStudio` triggers a hardware verification DAG, building the binary in its isolated sandbox.
+   - `Soloman Studio` triggers a hardware verification DAG, building the binary in its isolated sandbox.
 
 2. **Automated Flashing via MCP Mesh**:
-   - `OctopusMCP-Manager` directs JTAG/SWD programming tools to flash the target hardware device over a dedicated serial bridge.
+   - `Soloman Manager` directs JTAG/SWD programming tools to flash the target hardware device over a dedicated serial bridge.
 
 3. **Physical User Interaction Simulation**:
-   - `octolimb` positions a calibrated silicone stylus with sub-millimeter precision to press physical buttons, swipe capacitive screens, and toggle hardware switches.
+   - `Soloman Limb` positions a calibrated silicone stylus with sub-millimeter precision to press physical buttons, swipe capacitive screens, and toggle hardware switches.
 
 4. **Visual & Optical Verification**:
-   - `octocut` monitors the device display via high-speed overhead macro cameras, performing OCR on UI strings, detecting frame drops, and verifying LED indicator blink patterns.
+   - `Soloman Editor` monitors the device display via high-speed overhead macro cameras, performing OCR on UI strings, detecting frame drops, and verifying LED indicator blink patterns.
 
 5. **Closed-Loop Feedback & Post-Mortem**:
-   - If an unexpected error screen appears, `octocut` cuts a 5-second video replay, correlates it with `octolimb`'s force telemetry, and `OctopusStudio` opens a GitHub PR with the root-cause diagnosis.
+   - If an unexpected error screen appears, `Soloman Editor` cuts a 5-second video replay, correlates it with `Soloman Limb`'s force telemetry, and `Soloman Studio` opens a GitHub PR with the root-cause diagnosis.
 
 ---
 

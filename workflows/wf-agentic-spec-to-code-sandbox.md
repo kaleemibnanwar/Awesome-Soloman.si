@@ -1,13 +1,13 @@
 # Automated Workflow: Agentic Spec-to-Code Pipeline & Hot Sandbox Verification 💻⚡
 
 > **Declarative Blueprint for Architecture RFC Parsing, TypeScript Synthesis, AST Validation & Live Sandbox Reload**  
-> Orchestrated via: `OctopusStudio` + `OctopusMCP-Manager`
+> Orchestrated via: `Soloman Studio` + `Soloman Manager`
 
 ---
 
 ## 📌 Workflow Summary
 
-This workflow orchestrates the end-to-end translation of a technical feature specification or user prompt into type-safe, tested, and visually rendered React components inside `OctopusStudio`'s isolated sandbox.
+This workflow orchestrates the end-to-end translation of a technical feature specification or user prompt into type-safe, tested, and visually rendered React components inside `Soloman Studio`'s isolated sandbox.
 
 ---
 
@@ -21,7 +21,7 @@ This workflow orchestrates the end-to-end translation of a technical feature spe
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 1: Architectural Planning  │
-               │ (OctopusStudio Explorer Agent)  │
+               │ (Soloman Studio Explorer Agent) │
                └────────────────┬────────────────┘
                                 │
                                 ▼
@@ -55,7 +55,7 @@ This workflow orchestrates the end-to-end translation of a technical feature spe
 
 ```json
 {
-  "$schema": "http://octopus.engine/schemas/workflow-v2.json",
+  "$schema": "http://soloman.engine/schemas/workflow-v2.json",
   "name": "agentic-spec-to-code-sandbox",
   "version": "2.0.0",
   "nodes": [

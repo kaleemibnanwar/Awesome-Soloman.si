@@ -1,7 +1,7 @@
 # Automated Workflow: Edge Telemetry Ingestion & Robotic Actuation 🦾⚡
 
 > **Declarative Blueprint for Closed-Loop Sensor Telemetry, Spatial Kinematics & Physical Gripper Actuation**  
-> Orchestrated via: `OctopusStudio` + `octolimb` + `OctopusMCP-Manager`
+> Orchestrated via: `Soloman Studio` + `Soloman Limb` + `Soloman Manager`
 
 ---
 
@@ -21,31 +21,31 @@ This workflow orchestrates real-time edge telemetry monitoring, safety velocity 
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 1: Safety & Geofence Check │
-               │ (OctopusMCP-Manager Interlock)  │
+               │ (Soloman Manager Interlock)     │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 2: Inverse Kinematics Calc │
-               │ (octolimb Kinematic Solver)     │
+               │ (Soloman Limb Kinematic Solver) │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 3: Quintic Trajectory Exec │
-               │ (octolimb CAN / EtherCAT Driver)│
+               │ (Soloman Limb CAN/EtherCAT)     │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 4: Force-Torque Grip Settle│
-               │ (octolimb Tactile Strain Gauge) │
+               │ (Soloman Limb Strain Gauge)     │
                └────────────────┬────────────────┘
                                 │
                                 ▼
                ┌─────────────────────────────────┐
                │ Step 5: Studio 3D Twin Update   │
-               │ (OctopusStudio WebGL Viewport)  │
+               │ (Soloman Studio WebGL Viewport) │
                └─────────────────────────────────┘
 ```
 
@@ -55,13 +55,13 @@ This workflow orchestrates real-time edge telemetry monitoring, safety velocity 
 
 ```json
 {
-  "$schema": "http://octopus.engine/schemas/workflow-v2.json",
+  "$schema": "http://soloman.engine/schemas/workflow-v2.json",
   "name": "edge-telemetry-actuation-loop",
   "version": "1.4.0",
   "nodes": [
     {
       "id": "validate_safety_bounds",
-      "tool": "octolimb_check_geofence",
+      "tool": "soloman-limb_check_geofence",
       "inputs": {
         "target_pose": "{{inputs.target_pose}}",
         "speed_scale": 0.5
@@ -69,7 +69,7 @@ This workflow orchestrates real-time edge telemetry monitoring, safety velocity 
     },
     {
       "id": "execute_arm_motion",
-      "tool": "octolimb_move_trajectory",
+      "tool": "soloman-limb_move_trajectory",
       "depends_on": ["validate_safety_bounds"],
       "inputs": {
         "target_cartesian": "{{inputs.target_pose}}",
@@ -79,7 +79,7 @@ This workflow orchestrates real-time edge telemetry monitoring, safety velocity 
     },
     {
       "id": "engage_tactile_gripper",
-      "tool": "octolimb_actuate_gripper",
+      "tool": "soloman-limb_actuate_gripper",
       "depends_on": ["execute_arm_motion"],
       "inputs": {
         "aperture_mm": 25.0,
@@ -89,7 +89,7 @@ This workflow orchestrates real-time edge telemetry monitoring, safety velocity 
     },
     {
       "id": "emit_telemetry_checkpoint",
-      "tool": "octopus_studio_broadcast_telemetry",
+      "tool": "soloman_studio_broadcast_telemetry",
       "depends_on": ["engage_tactile_gripper"],
       "inputs": {
         "channel": "live_3d_digital_twin",

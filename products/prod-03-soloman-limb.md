@@ -1,15 +1,15 @@
-# Product Specification: octolimb 🦾⚡
+# Product Specification: Soloman Limb 🦾⚡
 
 > **Robotic Hardware Actuation, Edge Agent Runtime & Spatial Telemetry Controller**  
-> Repository: [github.com/kaleemibnanwar/octolimb](https://github.com/kaleemibnanwar/octolimb)
+> Repository: [github.com/kaleemibnanwar/solomanlimb](https://github.com/kaleemibnanwar/solomanlimb)
 
 ---
 
 ## 📌 Executive Summary
 
-**octolimb** is an open-source robotic actuation framework, hardware abstraction layer (HAL), and edge agent runtime designed for physical-digital interaction. It enables autonomous software agents and multi-modal models to control multi-axis robotic arms, mobile rovers, pan-tilt camera gimbals, tactile end-effectors, and IoT actuators over deterministic real-time communication buses.
+**Soloman Limb** is an open-source robotic actuation framework, hardware abstraction layer (HAL), and edge agent runtime designed for physical-digital interaction. It enables autonomous software agents and multi-modal models to control multi-axis robotic arms, mobile rovers, pan-tilt camera gimbals, tactile end-effectors, and IoT actuators over deterministic real-time communication buses.
 
-By encapsulating forward/inverse kinematics, safety velocity envelopes, spatial coordinate frames, and sensory feedback loops into clean, standardized primitives and MCP tool interfaces, `octolimb` provides the physical "limbs" for digital AI brains.
+By encapsulating forward/inverse kinematics, safety velocity envelopes, spatial coordinate frames, and sensory feedback loops into clean, standardized primitives and MCP tool interfaces, `Soloman Limb` provides the physical "limbs" for digital AI brains.
 
 ---
 
@@ -17,12 +17,12 @@ By encapsulating forward/inverse kinematics, safety velocity envelopes, spatial 
 
 ```
                       ┌─────────────────────────────────────────┐
-                      │    Autonomous Agent / OctopusStudio     │
+                      │    Autonomous Agent / Soloman Studio    │
                       │       (Natural Language / LLM Plan)     │
                       └────────────────────┬────────────────────┘
                                            │ (MCP / JSON-RPC / gRPC)
                       ┌────────────────────┴────────────────────┐
-                      │            octolimb Edge Daemon         │
+                      │            Soloman Limb Edge Daemon     │
                       └────────────────────┬────────────────────┘
                                            │
          ┌─────────────────────────────────┼─────────────────────────────────┐
@@ -65,23 +65,23 @@ By encapsulating forward/inverse kinematics, safety velocity envelopes, spatial 
 
 ### 4. Native Model Context Protocol (MCP) Server
 - Exposes physical robotics capabilities directly to LLM agents:
-  - `octolimb_move_to_pose(x, y, z, roll, pitch, yaw, speed_percent)`
-  - `octolimb_actuate_gripper(position_mm, effort_limit_nm)`
-  - `octolimb_track_target_coordinates(target_x, target_y, target_z)`
-  - `octolimb_get_telemetry_snapshot()`
+  - `soloman-limb_move_to_pose(x, y, z, roll, pitch, yaw, speed_percent)`
+  - `soloman-limb_actuate_gripper(position_mm, effort_limit_nm)`
+  - `soloman-limb_track_target_coordinates(target_x, target_y, target_z)`
+  - `soloman-limb_get_telemetry_snapshot()`
 
 ---
 
 ## 🔌 Interconnection Interface
 
-`octolimb` forms the physical execution bridge in the Octopus ecosystem:
-- **With OctopusStudio**: Provides a real-time 3D digital twin visualizer (Three.js / WebGL) rendered directly in the Studio preview window.
-- **With octocut**: Synchronizes camera gimbal pan-tilt actions with automated video capture and timestamped audio-visual tagging.
-- **With OctopusMCP-Manager**: Connects as a secured edge-device MCP node with strict authentication and role-based execution constraints.
+`Soloman Limb` forms the physical execution bridge in the Soloman ecosystem:
+- **With Soloman Studio**: Provides a real-time 3D digital twin visualizer (Three.js / WebGL) rendered directly in the Studio preview window.
+- **With Soloman Editor**: Synchronizes camera gimbal pan-tilt actions with automated video capture and timestamped audio-visual tagging.
+- **With Soloman Manager**: Connects as a secured edge-device MCP node with strict authentication and role-based execution constraints.
 
 ```json
 {
-  "device_id": "octolimb-arm-node-01",
+  "device_id": "soloman-limb-arm-node-01",
   "capabilities": {
     "degrees_of_freedom": 6,
     "payload_capacity_kg": 2.5,
@@ -103,9 +103,9 @@ By encapsulating forward/inverse kinematics, safety velocity envelopes, spatial 
 ## 💻 Code Example: Multi-Axis Robotic Command
 
 ```typescript
-import { OctoLimbClient, CoordinateFrame, Vector3D } from '@octopus/octolimb-client';
+import { SolomanLimbClient, CoordinateFrame, Vector3D } from '@soloman/soloman-limb-client';
 
-const limb = new OctoLimbClient({
+const limb = new SolomanLimbClient({
   host: '192.168.1.120',
   port: 9000,
   emergencyStopListener: (reason) => {

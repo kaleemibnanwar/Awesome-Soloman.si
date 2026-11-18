@@ -1,7 +1,7 @@
 # Feature Specification: Deterministic DAG Task Graph Engine 🔀
 
 > **Asynchronous Multi-Agent Graph Scheduling with Cycle Detection and Rollback Resilience**  
-> Integrated across: `OctopusStudio`, `octocut`, `octolimb`, `OctopusMCP-Manager`
+> Integrated across: `Soloman Studio`, `Soloman Editor`, `Soloman Limb`, `Soloman Manager`
 
 ---
 
@@ -27,9 +27,9 @@ The **DAG Task Graph Engine** is a deterministic orchestration runtime designed 
                     ▼                                               ▼
       ┌───────────────────────────┐                   ┌───────────────────────────┐
       │   Branch A: Ingest Media  │                   │  Branch B: Calibrate Limb │
-      │      (Role: `octocut`)    │                   │      (Role: `octolimb`)   │
+      │ (Role: `Soloman Editor`)  │                   │  (Role: `Soloman Limb`)   │
       └─────────────┬─────────────┘                   └─────────────┬─────────────┘
-                    │                                               │
+                    │                           │
                     └───────────────────────┬───────────────────────┘
                                             ▼
                               ┌───────────────────────────┐
@@ -67,7 +67,7 @@ The **DAG Task Graph Engine** is a deterministic orchestration runtime designed 
 
 ```json
 {
-  "$schema": "http://octopus.engine/schemas/dag-v2.json",
+  "$schema": "http://soloman.engine/schemas/dag-v2.json",
   "goal": "Capture multi-angle drone stream, extract highlight clips, and trigger physical sorting arm",
   "concurrency_limit": 4,
   "timeout_ms": 60000,
@@ -75,13 +75,13 @@ The **DAG Task Graph Engine** is a deterministic orchestration runtime designed 
     {
       "id": "t1_calibrate_limb",
       "role": "executor",
-      "tool": "octolimb_home_all_axes",
+      "tool": "soloman-limb_home_all_axes",
       "context": "Ensure 6-DoF robotic arm is in home position and ready"
     },
     {
       "id": "t2_ingest_and_slice_video",
       "role": "executor",
-      "tool": "octocut_slice_clip",
+      "tool": "soloman-editor_slice_clip",
       "params": {
         "source": "rtsp://camera-01.local/live",
         "duration_sec": 30
@@ -96,7 +96,7 @@ The **DAG Task Graph Engine** is a deterministic orchestration runtime designed 
     {
       "id": "t4_sort_defective_item",
       "role": "executor",
-      "tool": "octolimb_move_to_pose",
+      "tool": "soloman-limb_move_to_pose",
       "depends_on": ["t1_calibrate_limb", "t3_detect_anomalies"],
       "condition": "outputs.t3_detect_anomalies.has_defects == true"
     }

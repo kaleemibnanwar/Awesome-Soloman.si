@@ -1,7 +1,7 @@
 # Feature Specification: Edge Hardware Actuation & Spatial Telemetry 🦾📡
 
 > **Real-Time Kinematics, Sensor Fusion & Physical-Digital Hardware Control**  
-> Integrated across: `octolimb`, `OctopusMCP-Manager`, `OctopusStudio`
+> Integrated across: `Soloman Limb`, `Soloman Manager`, `Soloman Studio`
 
 ---
 
@@ -21,7 +21,7 @@ The **Edge Hardware Actuation & Spatial Telemetry** feature provides the physica
                             │ Cartesian Goal: (X, Y, Z, Roll, Pitch, Yaw)
                             ▼
 ┌────────────────────────────────────────────────────────┐
-│             octolimb Spatial Kinematics Core           │
+│             Soloman Limb Spatial Kinematics Core       │
 │  - Inverse Kinematics (IK) Multi-solution Solver       │
 │  - Collision Geofence & Velocity Profile Generator     │
 │  - Trajectory Smoothing (Quintic Spline Interpolation) │
@@ -55,7 +55,7 @@ The **Edge Hardware Actuation & Spatial Telemetry** feature provides the physica
   - 6-axis Cartesian position and velocity vectors.
   - Joint motor currents, temperatures, and torque loads.
   - End-effector force-torque sensor readouts.
-- Visualized live within `OctopusStudio` via a real-time WebGL 3D digital twin.
+- Visualized live within `Soloman Studio` via a real-time WebGL 3D digital twin.
 
 ### 3. Safety Envelope & Torque-Limiting Interlocks
 - **Iso-compliant Safety Envelopes**: Soft virtual walls preventing actuators from colliding with equipment or human workspaces.
@@ -63,10 +63,10 @@ The **Edge Hardware Actuation & Spatial Telemetry** feature provides the physica
 
 ### 4. Direct MCP Hardware Interface
 - Provides intuitive, high-level MCP tool invocations:
-  - `octolimb_move_cartesian(x, y, z, r, p, y, speed)`
-  - `octolimb_actuate_gripper(grip_force, target_mm)`
-  - `octolimb_set_virtual_geofence(box_min, box_max)`
-  - `octolimb_emergency_stop(reason)`
+  - `soloman-limb_move_cartesian(x, y, z, r, p, y, speed)`
+  - `soloman-limb_actuate_gripper(grip_force, target_mm)`
+  - `soloman-limb_set_virtual_geofence(box_min, box_max)`
+  - `soloman-limb_emergency_stop(reason)`
 
 ---
 
@@ -75,7 +75,7 @@ The **Edge Hardware Actuation & Spatial Telemetry** feature provides the physica
 ```json
 {
   "timestamp_us": 1716382910452300,
-  "arm_id": "octolimb-manipulator-04",
+  "arm_id": "soloman-limb-manipulator-04",
   "operational_state": "TRAJECTORY_FOLLOWING",
   "pose": {
     "cartesian_mm": { "x": 240.5, "y": -110.2, "z": 85.0 },
@@ -107,4 +107,4 @@ The **Edge Hardware Actuation & Spatial Telemetry** feature provides the physica
 | **Control Loop Frequency** | `1,000 Hz` (EtherCAT) / `200 Hz` (CAN) |
 | **Position Repeatability** | `± 0.05 mm` |
 | **E-STOP Response Time** | `< 4 ms` hardware cut-off |
-| **Telemetry Latency** | `< 8 ms` end-to-end to OctopusStudio |
+| **Telemetry Latency** | `< 8 ms` end-to-end to Soloman Studio |

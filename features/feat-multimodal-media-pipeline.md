@@ -1,7 +1,7 @@
 # Feature Specification: Multimodal Media Pipeline & Video Slicing 🎬⚡
 
 > **High-Throughput Sub-Second Video Trimming, Audio Processing & AI Transcript Synchronization**  
-> Integrated across: `octocut`, `OctopusStudio`, `OctopusMCP-Manager`
+> Integrated across: `Soloman Editor`, `Soloman Studio`, `Soloman Manager`
 
 ---
 
@@ -47,18 +47,18 @@ The **Multimodal Media Pipeline** enables automated, frame-accurate video slicin
 ## ⚙️ Core Technical Capabilities
 
 ### 1. Smart GOP Boundary Lossless Trimming
-- Unlike conventional editors that force full re-encoding of entire video files, `octocut` re-encodes only the opening and closing Group of Pictures (GOPs) between cut points and performs a lossless bitstream copy (`-c copy`) for all intermediate frames.
+- Unlike conventional editors that force full re-encoding of entire video files, `Soloman Editor` re-encodes only the opening and closing Group of Pictures (GOPs) between cut points and performs a lossless bitstream copy (`-c copy`) for all intermediate frames.
 - Reduces processing time for 1-hour 4K video cuts from **15 minutes** to **under 800 milliseconds**.
 
 ### 2. Semantic Timestamp & Transcript Synchronization
 - Aligns words with microsecond precision against audio waveforms.
-- Allows AI agents in `OctopusStudio` to slice clips based on natural semantic triggers (e.g., *"Cut clip starting when the host introduces the product until applause begins"*).
+- Allows AI agents in `Soloman Studio` to slice clips based on natural semantic triggers (e.g., *"Cut clip starting when the host introduces the product until applause begins"*).
 
 ### 3. Smart Face-Tracking & Dynamic Reframing
 - Automatically tracks speakers and regions of interest to convert landscape (16:9) video into vertical formats (9:16) for mobile platforms without awkward subject cropping.
 
 ### 4. Direct Node & MCP Streaming
-- Exposes real-time chunked video rendering over HTTP streaming and WebSocket feeds, allowing direct playback in `OctopusStudio` live previews.
+- Exposes real-time chunked video rendering over HTTP streaming and WebSocket feeds, allowing direct playback in `Soloman Studio` live previews.
 
 ---
 
@@ -89,7 +89,7 @@ export interface VideoSliceRequest {
 
 ## 📊 Performance Benchmarks
 
-| Feature | octocut Performance | Traditional FFmpeg Re-encode | Speedup |
+| Feature | Soloman Editor Performance | Traditional FFmpeg Re-encode | Speedup |
 | :--- | :--- | :--- | :--- |
 | **5-Min 1080p Clip Extraction** | `140 ms` | `3,200 ms` | **22.8x** |
 | **1-Hour 4K GOP-Lossless Slice** | `780 ms` | `18,500 ms` | **23.7x** |

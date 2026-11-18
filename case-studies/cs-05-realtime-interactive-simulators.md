@@ -1,7 +1,7 @@
 # Case Study: Real-Time Interactive Simulator & Tele-Operation Grid 🎮🕹️
 
 > **Production Deployment Deep Dive**  
-> **Tools Integrated**: `OctopusStudio`, `octocut`, `octolimb`, `OctopusMCP-Manager`  
+> **Tools Integrated**: `Soloman Studio`, `Soloman Editor`, `Soloman Limb`, `Soloman Manager`  
 > **Industry**: Surgical Tele-Robotics, Flight Simulation & Spatial Haptics  
 > **Key Metric**: **< 18ms End-to-End Visual/Haptic Latency**; **Sub-millimeter Tele-operation fidelity**.
 
@@ -24,37 +24,37 @@ ApexSurgical deployed an ultra-low-latency physical-digital simulator mesh:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                   OctopusStudio Spatial Cockpit                        │
+│                   Soloman Studio Spatial Cockpit                       │
 │    - WebGL Multi-Perspective 3D Viewport & HUD                         │
 │    - Real-Time Haptic Force Waveform Graphing                          │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│                      OctopusMCP-Manager Gateway                        │
+│                      Soloman Manager Gateway                           │
 │    - Real-Time Zero-Copy gRPC & WebSocket Routing                      │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
            ┌────────────────────────┴────────────────────────┐
            ▼                                                 ▼
 ┌─────────────────────────────────────┐   ┌─────────────────────────────────────┐
-│          octolimb Actuation         │   │          octocut Low-Latency        │
+│          Soloman Limb Actuation     │   │          Soloman Editor Low-Latency │
 │ - 7-DoF Redundant Manipulator       │   │ - WebRTC Zero-Buffering Video Stream│
 │ - Sub-Millimeter Spatial Trajectory │   │ - Frame-Accurate Procedural Replay  │
 └─────────────────────────────────────┘   └─────────────────────────────────────┘
 ```
 
 ### System Integration Breakdown:
-- **`octocut`**: Slices and streams multi-angle stereoscopic surgical camera feeds over WebRTC with hardware NVENC decoding, achieving a glass-to-glass visual latency of under 11 milliseconds.
-- **`octolimb`**: Drives 7-DoF micro-manipulator slave arms and maps operator master controller inputs into smooth, tremor-filtered physical incisions.
-- **`OctopusMCP-Manager`**: Manages low-latency protocol negotiation, session authentication, and telemetry recording to high-speed NVMe storage.
-- **`OctopusStudio`**: Delivers a customizable surgical training cockpit in React, capturing session video clips and providing automated AI critique on incision angle and tool smoothness.
+- **`Soloman Editor`**: Slices and streams multi-angle stereoscopic surgical camera feeds over WebRTC with hardware NVENC decoding, achieving a glass-to-glass visual latency of under 11 milliseconds.
+- **`Soloman Limb`**: Drives 7-DoF micro-manipulator slave arms and maps operator master controller inputs into smooth, tremor-filtered physical incisions.
+- **`Soloman Manager`**: Manages low-latency protocol negotiation, session authentication, and telemetry recording to high-speed NVMe storage.
+- **`Soloman Studio`**: Delivers a customizable surgical training cockpit in React, capturing session video clips and providing automated AI critique on incision angle and tool smoothness.
 
 ---
 
 ## 📈 Quantitative Results & ROI
 
-| Metric | Prior Custom Stack | Octopus Simulator Mesh | Improvement |
+| Metric | Prior Custom Stack | Soloman Simulator Mesh | Improvement |
 | :--- | :--- | :--- | :--- |
 | **Glass-to-Glass Video Latency** | 68 ms | **11 ms** | **6.1x faster** |
 | **Spatial Kinematic Repeatability** | `± 0.25 mm` | **`± 0.02 mm`** | **12.5x higher precision** |
@@ -65,5 +65,5 @@ ApexSurgical deployed an ultra-low-latency physical-digital simulator mesh:
 
 ## 💡 Key Architectural Lessons Learned
 
-1. **Zero-Buffering Pipelines Prevent Nausea**: In interactive tele-operation, frame dropping is vastly preferable to frame buffering. Configuring `octocut` for zero-jitter WebRTC streaming eliminated operator fatigue.
-2. **Kinematic-Video Temporal Sync**: Stamping every video frame with the precise `octolimb` joint telemetry timestamp enabled post-session AI reviews to correlate hand movements with surgical precision metrics.
+1. **Zero-Buffering Pipelines Prevent Nausea**: In interactive tele-operation, frame dropping is vastly preferable to frame buffering. Configuring `Soloman Editor` for zero-jitter WebRTC streaming eliminated operator fatigue.
+2. **Kinematic-Video Temporal Sync**: Stamping every video frame with the precise `Soloman Limb` joint telemetry timestamp enabled post-session AI reviews to correlate hand movements with surgical precision metrics.

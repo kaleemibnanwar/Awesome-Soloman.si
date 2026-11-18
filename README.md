@@ -1,10 +1,10 @@
-# Awesome-Octopus 🐙🌐
+# Awesome Soloman ⚡🌐
 
 > **The Definitive Ecosystem Hub: Products, Modular Features, Production Case Studies, and Interconnected Cyber-Physical System Blueprints.**
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.md)
-[![Ecosystem: Octopus](https://img.shields.io/badge/Ecosystem-Octopus-indigo.svg)](#-the-octopus-product-suite)
+[![Ecosystem: Soloman](https://img.shields.io/badge/Ecosystem-Soloman-indigo.svg)](#-the-soloman-product-suite)
 [![Architecture: MCP-Native](https://img.shields.io/badge/Architecture-MCP--Native-teal.svg)](#-how-interconnection-creates-advanced-systems)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -13,7 +13,7 @@
 ## 📑 Table of Contents
 
 - [🔭 Executive Overview](#-executive-overview)
-- [📦 The Octopus Product Suite](#-the-octopus-product-suite)
+- [📦 The Soloman Product Suite](#-the-soloman-product-suite)
 - [🔗 How Interconnection Creates Advanced Systems](#-how-interconnection-creates-advanced-systems)
   - [1. Autonomous Multimodal Media & Broadcast Grid](#1-autonomous-multimodal-media--broadcast-grid)
   - [2. Intelligent Industrial Robotics & Visual Defect Sorter](#2-intelligent-industrial-robotics--visual-defect-sorter)
@@ -30,48 +30,48 @@
 
 ## 🔭 Executive Overview
 
-**Awesome-Octopus** is the central knowledge base, architectural standard, and integration hub for the **Octopus Ecosystem**—a suite of open-source engines uniting **AI software engineering, multimodal media processing, robotic kinematics, and dynamic tool mesh security**.
+**Awesome Soloman** is the central knowledge base, architectural standard, and integration hub for the **Soloman Ecosystem**—a suite of open-source engines uniting **AI software engineering, multimodal media processing, robotic kinematics, and dynamic tool mesh security**.
 
 While each tool is fully functional in isolation, their **interconnection** creates closed-loop cyber-physical systems that perceive the physical world, reason over code and telemetry, orchestrate distributed tools, and physically actuate hardware in real time.
 
 ```
  +-------------------------------------------------------------------------+
  |                            COGNITIVE BRAIN                              |
- |              [ OctopusStudio ] (Multi-Agent IDE & DAG Planner)          |
+ |           [ Soloman Studio ] (Multi-Agent IDE & DAG Planner)            |
  +------------------------------------+------------------------------------+
                                       | Dynamic MCP Tool Calls (JSON-RPC)
                                       v
  +-------------------------------------------------------------------------+
  |                          NERVOUS SYSTEM / GATEWAY                       |
- |             [ OctopusMCP-Manager ] (Fleet Router & Security Vault)      |
+ |            [ Soloman Manager ] (Fleet Router & Security Vault)          |
  +--------------------+-------------------------------+--------------------+
-                      |                               |
+                      |                                                                         |
        Media API (SSE)|                               | Motor Bus (gRPC/CAN)
                       v                               v
  +-----------------------------+             +-----------------------------+
- |       PERCEPTION LAYER      |             |        PHYSICAL LAYER       |
- |  [ octocut ] (Media Engine) |             |  [ octolimb ] (Robotics HAL)|
+ |  PERCEPTION LAYER  |                               |   PHYSICAL LAYER   |
+ |  [ Soloman Editor ] (Media) |             | [ Soloman Limb ] (Robot HAL)|
  +-----------------------------+             +-----------------------------+
 ```
 
 ---
 
-## 📦 The Octopus Product Suite
+## 📦 The Soloman Product Suite
 
-The Octopus ecosystem is powered by four primary repositories:
+The Soloman ecosystem is powered by four primary repositories:
 
 | Product | Repository | Domain | Core Role |
 | :--- | :--- | :--- | :--- |
-| **OctopusStudio** | [`kaleemibnanwar/OctopusStudio`](https://github.com/kaleemibnanwar/OctopusStudio) | AI IDE & Multi-Agent Swarms | Interactive browser IDE, real-time code synthesis, live preview, and deterministic DAG task execution. |
-| **octocut** | [`kaleemibnanwar/octocut`](https://github.com/kaleemibnanwar/octocut) | Multimodal Audio & Video | High-throughput GOP-lossless video slicing, Whisper ASR transcript synchronization, and auto-reframing. |
-| **octolimb** | [`kaleemibnanwar/octolimb`](https://github.com/kaleemibnanwar/octolimb) | Robotics & Spatial Telemetry | Edge hardware actuation, forward/inverse kinematics, 1000Hz motor control, and sensor fusion. |
-| **OctopusMCP-Manager** | [`kaleemibnanwar/OctopusMCP-Manager`](https://github.com/kaleemibnanwar/OctopusMCP-Manager) | Model Context Protocol Mesh | Centralized MCP tool fleet gateway, dynamic tool discovery, credential vaulting, and RBAC sandboxing. |
+| **Soloman Studio** | [`kaleemibnanwar/Soloman-Studio`](https://github.com/kaleemibnanwar/Soloman-Studio) | AI IDE & Multi-Agent Swarms | Interactive browser IDE, real-time code synthesis, live preview, and deterministic DAG task execution. |
+| **Soloman Editor** | [`kaleemibnanwar/SolomanEditor`](https://github.com/kaleemibnanwar/SolomanEditor) | Multimodal Audio & Video | High-throughput GOP-lossless video slicing, Whisper ASR transcript synchronization, and auto-reframing. |
+| **Soloman Limb** | [`kaleemibnanwar/solomanlimb`](https://github.com/kaleemibnanwar/solomanlimb) | Robotics & Spatial Telemetry | Edge hardware actuation, forward/inverse kinematics, 1000Hz motor control, and sensor fusion. |
+| **Soloman Manager** | [`kaleemibnanwar/Soloman-Manager`](https://github.com/kaleemibnanwar/Soloman-Manager) | Model Context Protocol Mesh | Centralized MCP tool fleet gateway, dynamic tool discovery, credential vaulting, and RBAC sandboxing. |
 
 > Deep-dive technical product specifications:
-> - [`products/prod-01-octopus-studio.md`](products/prod-01-octopus-studio.md)
-> - [`products/prod-02-octocut.md`](products/prod-02-octocut.md)
-> - [`products/prod-03-octolimb.md`](products/prod-03-octolimb.md)
-> - [`products/prod-04-octopus-mcp-manager.md`](products/prod-04-octopus-mcp-manager.md)
+> - [`products/prod-01-soloman-studio.md`](products/prod-01-soloman-studio.md)
+> - [`products/prod-02-soloman-editor.md`](products/prod-02-soloman-editor.md)
+> - [`products/prod-03-soloman-limb.md`](products/prod-03-soloman-limb.md)
+> - [`products/prod-04-soloman-manager.md`](products/prod-04-soloman-manager.md)
 
 ---
 
@@ -81,23 +81,23 @@ By weaving together cognitive software development, media understanding, robotic
 
 ```
                                ┌─────────────────────────┐
-                               │     OctopusStudio       │
+                               │     Soloman Studio      │
                                │ (Cognitive Control Hub) │
                                └────────────┬────────────┘
                                             │
                                             ▼
                                ┌─────────────────────────┐
-                               │   OctopusMCP-Manager    │
+                               │   Soloman Manager       │
                                │  (Tool Security Mesh)   │
                                └────────────┬────────────┘
                                             │
                  ┌──────────────────────────┴──────────────────────────┐
                  ▼                                                     ▼
    ┌───────────────────────────┐                         ┌───────────────────────────┐
-   │          octocut          │                         │         octolimb          │
+   │          Soloman Editor   │                         │         Soloman Limb      │
    │  (Multimodal Perception)  │                         │    (Physical Actuation)   │
    └─────────────┬─────────────┘                         └─────────────┬─────────────┘
-                 │                                                     │
+                 │                                 │
                  └──────────────────────────┬──────────────────────────┘
                                             ▼
                            ┌─────────────────────────────────┐
@@ -110,22 +110,22 @@ By weaving together cognitive software development, media understanding, robotic
 ```
 
 ### 1. Autonomous Multimodal Media & Broadcast Grid
-- **Tools**: `OctopusStudio` + `OctopusMCP-Manager` + `octocut`
+- **Tools**: `Soloman Studio` + `Soloman Manager` + `Soloman Editor`
 - **System Blueprint**: [`systems/sys-02-autonomous-multimodal-newsroom.md`](systems/sys-02-autonomous-multimodal-newsroom.md)
 - **Concept**: Ingests continuous live streams (RTSP/RTMP), performs instant Whisper speech recognition, extracts viral topics via studio agents, lossless-slices highlights in `< 800ms`, overlays animated karaoke subtitles, and pushes clips to multi-platform CDNs automatically.
 
 ### 2. Intelligent Industrial Robotics & Visual Defect Sorter
-- **Tools**: `OctopusStudio` + `OctopusMCP-Manager` + `octolimb` + `octocut`
+- **Tools**: `Soloman Studio` + `Soloman Manager` + `Soloman Limb` + `Soloman Editor`
 - **System Blueprint**: [`systems/sys-03-intelligent-industrial-robotics-grid.md`](systems/sys-03-intelligent-industrial-robotics-grid.md)
-- **Concept**: High-speed conveyor camera feeds are analyzed by `octocut` for micro-defects. Spatial anomaly coordinates are dispatched through `OctopusMCP-Manager` to `octolimb`, which executes jerk-minimized 6-DoF robotic trajectory pick-and-sort operations with real-time 3D digital twin monitoring in `OctopusStudio`.
+- **Concept**: High-speed conveyor camera feeds are analyzed by `Soloman Editor` for micro-defects. Spatial anomaly coordinates are dispatched through `Soloman Manager` to `Soloman Limb`, which executes jerk-minimized 6-DoF robotic trajectory pick-and-sort operations with real-time 3D digital twin monitoring in `Soloman Studio`.
 
 ### 3. Continuous Cyber-Physical Hardware-in-the-Loop (HIL) CI/CD
-- **Tools**: `OctopusStudio` + `OctopusMCP-Manager` + `octolimb` + `octocut`
+- **Tools**: `Soloman Studio` + `Soloman Manager` + `Soloman Limb` + `Soloman Editor`
 - **System Blueprint**: [`systems/sys-04-closed-loop-hardware-in-the-loop-qa.md`](systems/sys-04-closed-loop-hardware-in-the-loop-qa.md)
-- **Concept**: Automates physical firmware testing for automotive touchscreens and medical devices. `OctopusStudio` builds and flashes firmware, `octolimb` physically taps and swipes screens with calibrated stylus pressure, and `octocut` analyzes 120 FPS high-speed video to detect frame drops and UI latency.
+- **Concept**: Automates physical firmware testing for automotive touchscreens and medical devices. `Soloman Studio` builds and flashes firmware, `Soloman Limb` physically taps and swipes screens with calibrated stylus pressure, and `Soloman Editor` analyzes 120 FPS high-speed video to detect frame drops and UI latency.
 
 ### 4. Real-Time Interactive Tele-Operation & Spatial Simulator
-- **Tools**: `OctopusStudio` + `octocut` + `octolimb` + `OctopusMCP-Manager`
+- **Tools**: `Soloman Studio` + `Soloman Editor` + `Soloman Limb` + `Soloman Manager`
 - **System Blueprint**: [`systems/sys-01-physical-digital-agentic-mesh.md`](systems/sys-01-physical-digital-agentic-mesh.md)
 - **Concept**: Sub-18ms glass-to-glass video streaming paired with 7-DoF robotic tele-manipulation and haptic feedback for surgical training and remote equipment maintenance.
 
@@ -137,11 +137,11 @@ Real-world deployment case studies complete with metrics, benchmarks, architectu
 
 | Case Study | Integrated Tools | Industry | Key Metric / Outcome | Specification |
 | :--- | :--- | :--- | :--- | :--- |
-| **Autonomous 24/7 AI Broadcast Studio** | `Studio` + `octocut` + `MCP-Mgr` | Media & Sports | **96x faster clipping**; 1,250+ viral shorts/day | [Read Case Study](case-studies/cs-01-autonomous-broadcast-studio.md) |
-| **Robotic Wet-Lab & Chemical Assay Cell** | `Studio` + `octolimb` + `MCP-Mgr` + `octocut` | BioTech & Pharma | **18.3x throughput**; 98.7% reagent waste drop | [Read Case Study](case-studies/cs-02-robotic-lab-automation.md) |
-| **Smart Warehouse Drone Fleet** | `octolimb` + `octocut` + `MCP-Mgr` + `Studio` | Logistics / Supply Chain | **82x faster audit** (12 days down to 3.5 hrs) | [Read Case Study](case-studies/cs-03-smart-warehouse-drone-fleet.md) |
-| **Cyber-Physical Hardware-in-the-Loop CI/CD** | `Studio` + `MCP-Mgr` + `octolimb` + `octocut` | Automotive & Medical | **2,370x faster regression** (14 days to 8.5 min) | [Read Case Study](case-studies/cs-04-cyber-physical-hardware-ci.md) |
-| **Real-Time Interactive Simulator** | `Studio` + `octocut` + `octolimb` + `MCP-Mgr` | Surgical Tele-Robotics | **11ms video latency**; `± 0.02 mm` precision | [Read Case Study](case-studies/cs-05-realtime-interactive-simulators.md) |
+| **Autonomous 24/7 AI Broadcast Studio** | `Studio` + `Soloman Editor` + `MCP-Mgr` | Media & Sports | **96x faster clipping**; 1,250+ viral shorts/day | [Read Case Study](case-studies/cs-01-autonomous-broadcast-studio.md) |
+| **Robotic Wet-Lab & Chemical Assay Cell** | `Studio` + `Soloman Limb` + `MCP-Mgr` + `Soloman Editor` | BioTech & Pharma | **18.3x throughput**; 98.7% reagent waste drop | [Read Case Study](case-studies/cs-02-robotic-lab-automation.md) |
+| **Smart Warehouse Drone Fleet** | `Soloman Limb` + `Soloman Editor` + `MCP-Mgr` + `Studio` | Logistics / Supply Chain | **82x faster audit** (12 days down to 3.5 hrs) | [Read Case Study](case-studies/cs-03-smart-warehouse-drone-fleet.md) |
+| **Cyber-Physical Hardware-in-the-Loop CI/CD** | `Studio` + `MCP-Mgr` + `Soloman Limb` + `Soloman Editor` | Automotive & Medical | **2,370x faster regression** (14 days to 8.5 min) | [Read Case Study](case-studies/cs-04-cyber-physical-hardware-ci.md) |
+| **Real-Time Interactive Simulator** | `Studio` + `Soloman Editor` + `Soloman Limb` + `MCP-Mgr` | Surgical Tele-Robotics | **11ms video latency**; `± 0.02 mm` precision | [Read Case Study](case-studies/cs-05-realtime-interactive-simulators.md) |
 
 ---
 
@@ -171,16 +171,16 @@ Production-ready declarative workflow definitions ready to adapt into your agent
 ## 🗂 Repository Structure
 
 ```text
-Awesome-Octopus/
+Awesome Soloman/
 ├── README.md                               # Master ecosystem directory and integration guide
 ├── CONTRIBUTING.md                         # Contribution and styling guidelines
 ├── LICENSE.md                              # Open-source MIT license
 │
 ├── products/                               # Deep-dive product specifications
-│   ├── prod-01-octopus-studio.md           # Multi-Agent IDE & Real-Time Code Synthesis
-│   ├── prod-02-octocut.md                  # Multimodal Media Slicing & Audio/Video Engine
-│   ├── prod-03-octolimb.md                 # Robotic Hardware Actuation & Spatial Telemetry
-│   └── prod-04-octopus-mcp-manager.md      # Model Context Protocol Fleet Gateway & Vault
+│   ├── prod-01-soloman-studio.md           # Multi-Agent IDE & Real-Time Code Synthesis
+│   ├── prod-02-soloman-editor.md                  # Multimodal Media Slicing & Audio/Video Engine
+│   ├── prod-03-soloman-limb.md                 # Robotic Hardware Actuation & Spatial Telemetry
+│   └── prod-04-soloman-manager.md      # Model Context Protocol Fleet Gateway & Vault
 │
 ├── systems/                                # Interconnected system architecture blueprints
 │   ├── sys-01-physical-digital-agentic-mesh.md # Master 4-Tool Closed-Loop Integration Mesh
